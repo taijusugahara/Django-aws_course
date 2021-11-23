@@ -1,0 +1,14 @@
+{% load static %}
+<h1>HelloWorld</h1>
+ようこそ画像！
+<img src="{% static 'menu01.png' %}" alt="">
+<br><br>
+
+{% for post in posts %}
+<a href ="{% url 'posts:post_detail' post_id=post.id %}">{{ post.title }}</a>
+<br /><br />
+{{ post.published }}
+<img src="{{ post.image.url }}" class = "img-fluid rounded" style="max-height: 200px;" />
+{{post.summary}}
+<br /><br />
+{% endfor %}

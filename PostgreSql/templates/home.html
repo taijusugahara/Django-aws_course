@@ -1,0 +1,18 @@
+<p>ホーム画面です</p>
+{% if users %}
+<h1>ユーザー一覧</h1>
+{% for user in users %}
+<div>
+  {% if user.picture %}
+  <img src="{{user.picture.url}}" alt="画像">
+  {% endif %}
+  <p>名前: {{user.username}}</p>
+  <p>年齢: {{user.age}}</p>
+  <p>メールアドレス: {{user.email}}</p>
+</div>
+<hr>
+{% endfor %}
+
+{% endif %}
+<br>
+<a href="{% url 'posts:regist' %}">ユーザー登録画面</a>
